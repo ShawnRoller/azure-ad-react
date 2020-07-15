@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import { Container } from 'reactstrap';
 import NavBar from './NavBar';
+import withAuthProvider, { AuthComponentProps } from './AuthProvider';
 import ErrorMessage from './ErrorMessage';
 import Welcome from './Welcome';
 import 'bootstrap/dist/css/bootstrap.css';
 
-class App extends Component<any> {
+class App extends Component<AuthComponentProps> {
   render() {
     let error = null;
     if (this.props.error) {
@@ -38,4 +39,4 @@ class App extends Component<any> {
   }
 }
 
-export default App;
+export default withAuthProvider(App);
